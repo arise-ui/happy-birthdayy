@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOUR DAYYY!!</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, purple, pink);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 4em;
+        color: black;
+      }
+
+      #question-area {
+        margin: 20px 0;
+        padding: 20px;
+        background: palevioletred;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-size: 1.5em;
+        position: relative;
+        z-index: 1;
+      }
+
+      .shaky-btn {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        background-color: #ff4081;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.1s;
+      }
+
+      .shaky-btn:hover {
+        animation: shake 0.5s;
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(5px, 5px);
+        }
+        50% {
+          transform: translate(-5px, -5px);
+        }
+        75% {
+          transform: translate(5px, -5px);
+        }
+      }
+
+      #hearts {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .heart {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: palevioletred;
+        clip-path: hearts(50% 0%, 0% 50%, 50% 100%, 100% 50%);
+        animation: float 5s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-800px) scale(1.5);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HAPPY BIRTHDAYYY IVYYY!!!</h1>
+
+    <div id="question-area">
+      <p>This should be easyyy but its youu:(</p>
+      <p>Anywayss once you go black?</p>
+      <input type="text" id="answer" placeholder="Youre probably wrong:(" />
+      <button class="shaky-btn" onclick="checkAnswer()">Submit</button>
+    </div>
+
+    <div id="hearts"></div>
+
+    <script>
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+        document.getElementById("hearts").appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+
+      function checkAnswer() {
+        // Add shaking to the button
+        const btn = document.querySelector(".shaky-btn");
+        btn.classList.add("shake");
+
+        // Create hearts popping up
+        for (let i = 0; i < 30; i++) {
+          setTimeout(createHeart, i * 100);
+        }
+
+        // Redirect to the second page after 2 seconds
+        setTimeout(() => {
+          window.location.href = "message.html";
+        }, 2000);
+      }
+
+      setInterval(createHeart, 500);
+    </script>
+  </body>
+</html>
