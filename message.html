@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Surprise</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff0080, #ff80bf, #ffcccc);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 3.5em;
+        color: white;
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .message {
+        font-size: 2.5em;
+        color: white;
+        margin-top: 20px;
+        opacity: 0;
+        animation: fadeInMessage 2s forwards;
+        animation-delay: 2s;
+      }
+
+      @keyframes fadeInMessage {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="firstMessage">What were you expecting!?🤭</h1>
+    <p id="secondMessage" class="message">
+      Happy birthday Ivyyy !!!. I hope you enjoyed your day, love Jahawi! I hope
+      you enjoy this:)
+    </p>
+
+    <script>
+      // Redirect to Spotify after 7 seconds
+      setTimeout(() => {
+        window.location.href =
+          "https://open.spotify.com/playlist/11a2Fyq0cFglENT8VdAF7f";
+      }, 7000);
+    </script>
+  </body>
+</html>
